@@ -17,6 +17,9 @@ PATH=/usr/lib/llvm/18/bin:$PATH \
 		O=out \
 	vendor/lahaina-qgki_defconfig
 
+scripts/config --file out/.config \
+	-d CONFIG_THINLTO	# Build with full LTO instead of thin (Android default)
+
 PATH=/usr/lib/llvm/18/bin:$PATH \
         make \
                 ARCH=arm64 \

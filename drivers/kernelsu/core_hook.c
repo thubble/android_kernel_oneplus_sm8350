@@ -327,7 +327,7 @@ int ksu_handle_prctl(int option, unsigned long arg2, unsigned long arg3,
 #endif
 			if (arg4 &&
 			    copy_to_user(arg4, &is_lkm, sizeof(is_lkm))) {
-				pr_err("prctl reply error, cmd: %lu\n", arg2);
+				pr_debug("prctl reply error, cmd: %lu\n", arg2);
 			}
 		}
 		return 0;

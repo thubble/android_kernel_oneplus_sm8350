@@ -796,15 +796,16 @@ KBUILD_CFLAGS += -mcpu=cortex-a55
 KBUILD_AFLAGS += -mcpu=cortex-a55
 
 ifeq ($(CONFIG_LLVM_POLLY), y)
-KBUILD_CFLAGS	+= -mllvm -polly \
-		   -mllvm -polly-run-inliner \
-		   -mllvm -polly-reschedule=1 \
-		   -mllvm -polly-loopfusion-greedy=1 \
-		   -mllvm -polly-postopts=1 \
-		   -mllvm -polly-ast-use-context \
-		   -mllvm -polly-detect-keep-going \
-		   -mllvm -polly-vectorizer=stripmine \
-		   -mllvm -polly-invariant-load-hoisting
+KBUILD_CFLAGS	+= -fpass-plugin=LLVMPolly.so \
+		   -fplugin-arg-polly-polly \
+		   -fplugin-arg-polly-polly-run-inliner \
+		   -fplugin-arg-polly-polly-reschedule=1 \
+		   -fplugin-arg-polly-polly-loopfusion-greedy=1 \
+		   -fplugin-arg-polly-polly-postopts=1 \
+		   -fplugin-arg-polly-polly-ast-use-context \
+		   -fplugin-arg-polly-polly-detect-keep-going \
+		   -fplugin-arg-polly-polly-vectorizer=stripmine \
+		   -fplugin-arg-polly-polly-invariant-load-hoisting
 endif
 
 # Tell gcc to never replace conditional load with a non-conditional one

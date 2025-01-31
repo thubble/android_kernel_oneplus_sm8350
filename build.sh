@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH=/usr/lib/llvm/19/bin:$PATH \
+PATH=/home/thubble/src/aospa-op9/prebuilts/clang/host/linux-x86/clang-r522817/bin:$PATH \
 	make \
 		ARCH=arm64 \
 		CC=clang \
@@ -20,7 +20,7 @@ PATH=/usr/lib/llvm/19/bin:$PATH \
 scripts/config --file out/.config \
 	-d CONFIG_THINLTO	# Build with full LTO instead of thin (Android default)
 
-PATH=/usr/lib/llvm/19/bin:$PATH \
+PATH=/home/thubble/src/aospa-op9/prebuilts/clang/host/linux-x86/clang-r522817/bin:$PATH \
         make \
                 ARCH=arm64 \
                 CC=clang \

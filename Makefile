@@ -796,8 +796,7 @@ KBUILD_CFLAGS += -mcpu=cortex-a55
 KBUILD_AFLAGS += -mcpu=cortex-a55
 
 ifeq ($(CONFIG_LLVM_POLLY), y)
-KBUILD_CFLAGS	+= -fpass-plugin=LLVMPolly.so \
-		   -fplugin-arg-polly-polly \
+KBUILD_CFLAGS	+= -fplugin-arg-polly-polly \
 		   -fplugin-arg-polly-polly-run-inliner \
 		   -fplugin-arg-polly-polly-reschedule=1 \
 		   -fplugin-arg-polly-polly-loopfusion-greedy=1 \
